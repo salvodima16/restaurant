@@ -1,0 +1,21 @@
+<%= form_with model: ingredient do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %><br>
+    <% ingredient.errors.full_messages_for(:name).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+  </div>
+
+  <div>
+    <%= form.label :quantity %><br>
+    <%= form.text_field :quantity %><br>
+    <% ingredient.errors.full_messages_for(:quantity).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<h1><%= @ingredient.name %></h1>
+
+<p><%= @ingredient.quantity %>Kg</p>
+
+<ul>
+  <li><%= link_to "Edit", edit_ingredient_path(@ingredient) %></li>
+  <li><%= link_to "Destroy", ingredient_path(@ingredient), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
