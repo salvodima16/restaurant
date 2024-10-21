@@ -10,11 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_19_092456) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_20_154522) do
+  create_table "dishes", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.float "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "number"
+    t.string "name"
+    t.integer "people"
+    t.integer "table_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["table_id"], name: "index_orders_on_table_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.float "quantity"
+    t.integer "ingredient_id", null: false
+    t.integer "dish_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_recipes_on_dish_id"
+    t.index ["ingredient_id"], name: "index_recipes_on_ingredient_id"
+  end
+
+  create_table "tables", force: :cascade do |t|
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "orders", "tables"
+  add_foreign_key "recipes", "dishes"
+  add_foreign_key "recipes", "ingredients"
 end

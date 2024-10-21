@@ -15,6 +15,14 @@ Rails.application.routes.draw do
   get "/home", to: "home#index"
  
 
+  resources :tables do
+    resources :orders
+  end
+
+  resources :dishes
   resources :ingredients
+  resources :recipes
+
+  post "recipes/new", to: "recipes#create"
 
 end

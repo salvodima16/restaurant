@@ -53,6 +53,10 @@ group :development do
   #gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
   gem "error_highlight", "0.3.0", platforms: [:ruby]
 
+  gem "cocoon"
+
+  gem 'formtastic', '~> 5.0'
+
 end
 
 group :test do
