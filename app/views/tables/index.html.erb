@@ -1,0 +1,11 @@
+<h1>Tables</h1>
+
+<ul>
+  <% @tables.each do |table| %>
+    <li>
+      Table <%= link_to table.number, table %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Table", new_table_path %>

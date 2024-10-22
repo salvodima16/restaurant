@@ -1,0 +1,28 @@
+<h1>Create recipe</h1>
+
+<%= form_with model: @recipe do |form| %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :dish_id %>
+    <%= form.select :dish_id, @dishes.each %>
+  </div>
+
+  <div>
+    <%= form.label :ingredient_id %>
+    <%= form.select :ingredient_id, @ingredients.each %>
+  </div>
+
+  <div>
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

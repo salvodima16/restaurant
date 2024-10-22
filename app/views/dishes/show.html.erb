@@ -1,0 +1,24 @@
+<h1><%= @dish.name %></h1>
+
+<p>€<%= @dish.price %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_ingredient_path(@dish) %></li>
+  <li><%= link_to "Destroy", ingredient_path(@dish), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<h2> Ingredeints </h2>
+
+<ul>
+  <% @recipe_ingredients.each do |ingredient| %>
+    <li>
+      <p><%= ingredient.name %>
+    </li>
+    <li>
+      <p><%= ingredient.quantity %>kg
+    </li>
+  <% end %>
+</ul>
