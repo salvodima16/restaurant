@@ -10,15 +10,15 @@
                   } %></li>
 </ul>
 
-<h2> Ingredeints </h2>
+<h2> Ingredients </h2>
 
 <ul>
-  <% @recipe_ingredients.each do |ingredient| %>
+  <% @ingredients.each do |ingredient| %>
     <li>
-      <p><%= ingredient.name %>
-    </li>
-    <li>
-      <p><%= ingredient.quantity %>kg
+      <p><%= ingredient.name %>: <%= ingredient.quantity %>kg</p>
     </li>
   <% end %>
 </ul>
+
+
+<li><%= link_to "Add ingredient", new_quantity_path %></li>

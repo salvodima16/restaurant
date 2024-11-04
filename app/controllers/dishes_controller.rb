@@ -6,7 +6,7 @@ class DishesController < ApplicationController
 
   def show
     @dish = Dish.find(params[:id])
-    @recipe_ingredients = Recipe.find_by_sql("SELECT ingredients.name, recipes.quantity FROM recipes, ingredients WHERE recipes.ingredient_id = ingredients.id AND recipes.dish_id = ?", @dish.id)
+    @ingredients = Ingredient.joins(:quantities).where("dish_id = ?", params[:id]).select("ingredients.name, quantities.quantity")
   end
 
   def new

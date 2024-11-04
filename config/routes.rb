@@ -21,8 +21,6 @@ Rails.application.routes.draw do
 
   resources :dishes
   resources :ingredients
-  resources :recipes
-
-  post "recipes/new", to: "recipes#create"
+  resources :quantities
 
 end

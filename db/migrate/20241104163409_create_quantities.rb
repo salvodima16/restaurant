@@ -1,7 +1,6 @@
-class CreateRecipes < ActiveRecord::Migration[7.2]
+class CreateQuantities < ActiveRecord::Migration[7.2]
   def change
-    create_table :recipes do |t|
-      t.string :name
+    create_table :quantities do |t|
       t.float :quantity
       t.references :ingredient, null: false, foreign_key: true
       t.references :dish, null: false, foreign_key: true

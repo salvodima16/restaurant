@@ -1,4 +1,4 @@
 class Dish < ApplicationRecord
-  has_many :recipes
-  has_many :ingredients, :through => :recipes
+  has_many :quantities
+  has_many :ingredients, :through => :quantities
 end
