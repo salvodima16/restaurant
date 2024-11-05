@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   resources :dishes
   resources :ingredients
   resources :quantities
+  resources :paper_rows
 
 end

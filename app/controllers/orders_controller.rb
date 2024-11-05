@@ -2,7 +2,8 @@ class OrdersController < ApplicationController
   
   def show
     @table = Table.find(params[:table_id])
-    @orders = @table.order.all
+    @order = @table.orders.find(params[:id])
+    @dishes = Dish.joins(:orders).where("order_id = ?", params[:id]).select("dishes.name, paper_rows.quantity")
   end
 
   def new
@@ -11,7 +12,7 @@ class OrdersController < ApplicationController
 
   def create
     @table = Table.find(params[:table_id])
-    @order = @table.order.create(order_params)
+    @order = @table.orders.create(order_params)
     redirect_to order_path(@table)
   end
 

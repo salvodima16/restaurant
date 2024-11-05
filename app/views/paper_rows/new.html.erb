@@ -1,0 +1,23 @@
+<h1>Create recipe</h1>
+
+<%= form_with model: @paper_row do |form| %>
+
+  <div>
+    <%= form.label :order_id %>
+    <%= form.select :order_id, @orders.each %>
+  </div>
+
+  <div>
+    <%= form.label :dish_id %>
+    <%= form.select :dish_id, @dishes.each %>
+  </div>
+
+  <div>
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

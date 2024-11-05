@@ -3,24 +3,14 @@
 <p><%= @order.name %></p>
 <p>For <%= @order.people %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_order_path(@order) %></li>
-  <li><%= link_to "Destroy", order_path(@order), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
-
-<!--
 <h2>Dishes</h2>
 
-<% @orders.dishes.each do |dish| %>
-  <li>
-    <%= link_to dish.name, dish %>
-  </li>
-<% end %>
+<ul>
+  <% @dishes.each do |dish| %>
+    <li>
+      <p><%= dish.name %>: <%= dish.quantity %>pcs.</p>
+    </li>
+  <% end %>
+</ul>
 
-<h2> Add dish </h2>
-<%= link_to "Add Dish", new_dish_path %>
-
--->
+<%= link_to "Add Dish", new_paper_row_path %>

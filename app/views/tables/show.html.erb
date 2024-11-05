@@ -7,3 +7,30 @@
                     turbo_confirm: "Are you sure?"
                   } %></li>
 </ul>
+
+<h2>Orders</h2>
+<% @table.orders.each do |order| %>
+  <p>
+    Order: <%= link_to order.id, table_order_path(order)%>
+  </p>
+<% end %>
+
+
+<h2>Make an order:</h2>
+<%= form_with model: [ @table, @table.orders.build ] do |form| %>
+  <p>
+    <%= form.label :number %><br>
+    <%= form.text_field :number %>
+  </p>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_area :name %>
+  </p>
+  <p>
+    <%= form.label :people %><br>
+    <%= form.number_field :people %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

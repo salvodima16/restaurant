@@ -18,7 +18,7 @@
   <div>
     <%= form.label :people %><br>
     <%= form.text_field :people %><br>
-    <% order.errors.full_messages_for(:name).each do |message| %>
+    <% order.errors.full_messages_for(:people).each do |message| %>
     <div><%= message %></div>
   <% end %>
   </div>
