@@ -25,6 +25,16 @@ gem "jbuilder"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+gem "cocoon"
+
+gem 'formtastic', '~> 5.0'
+
+gem 'bootstrap', '~> 5.3.3'
+
+gem 'sassc-rails'
+
+gem 'jquery-rails'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 
@@ -53,10 +63,7 @@ group :development do
   #gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
   gem "error_highlight", "0.3.0", platforms: [:ruby]
 
-  gem "cocoon"
-
-  gem 'formtastic', '~> 5.0'
-
+  
 end
 
 group :test do
