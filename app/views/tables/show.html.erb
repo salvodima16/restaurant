@@ -1,23 +1,24 @@
-<h1><%= @table.number %></h1>
+<div class="p-3 w-100">
+  <h1><%= @table.number %></h1>
 
-<ul>
+  <ul>
   <li><%= link_to "Edit", edit_table_path(@table) %></li>
   <li><%= link_to "Destroy", table_path(@table), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
-</ul>
+  </ul>
 
-<h2>Orders</h2>
-<% @table.orders.each do |order| %>
+  <h2>Orders</h2>
+  <% @table.orders.each do |order| %>
   <p>
     Order: <%= link_to order.id, table_order_path(order)%>
   </p>
-<% end %>
+  <% end %>
 
 
-<h2>Make an order:</h2>
-<%= form_with model: [ @table, @table.orders.build ] do |form| %>
+  <h2>Make an order:</h2>
+  <%= form_with model: [ @table, @table.orders.build ] do |form| %>
   <p>
     <%= form.label :number %><br>
     <%= form.text_field :number %>
@@ -33,4 +34,5 @@
   <p>
     <%= form.submit %>
   </p>
-<% end %>
+  <% end %>
+</div>

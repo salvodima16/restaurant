@@ -1,16 +1,19 @@
-<h1><%= @order.number %></h1>
+<div class="p-3 w-100">
 
-<p><%= @order.name %></p>
-<p>For <%= @order.people %></p>
+  <h1>Order: <%= @order.number %></h1>
 
-<h2>Dishes</h2>
+  <p><%= @order.name %></p>
+  <p><%= @order.people %> person.</p>
 
-<ul>
-  <% @dishes.each do |dish| %>
-    <li>
-      <p><%= dish.name %>: <%= dish.quantity %>pcs.</p>
-    </li>
-  <% end %>
-</ul>
+  <h2>Dishes</h2>
 
-<%= link_to "Add Dish", new_paper_row_path %>
+  <ul>
+    <% @dishes.each do |dish| %>
+      <li>
+        <%= dish.name %>: <%= dish.quantity %>pcs.
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Add Dish", new_paper_row_path %>
+</div>

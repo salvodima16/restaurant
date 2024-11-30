@@ -1,11 +1,22 @@
-<h1>Ingredients</h1>
+<div class="position-relative p-3 w-100">
+  <div class="position-absolute start-20">
+    <div>
+      <h1>Ingredients</h1>
+    </div>
+    <br>
+    <div>
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          <% @ingredients.each do |ingredient| %>
+            <li class="list-group-item"><%= link_to ingredient.name, ingredient %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <br>
+    <div class>
+      <%= link_to "New Ingredient", new_ingredient_path %>
+    </div>
+  </div>
+</div>
 
-<ul>
-  <% @ingredients.each do |ingredient| %>
-    <li>
-      <%= link_to ingredient.name, ingredient %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to "New Ingredient", new_ingredient_path %>

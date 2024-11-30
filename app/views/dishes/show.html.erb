@@ -1,24 +1,27 @@
-<h1><%= @dish.name %></h1>
+<div class="position-relative p-3 w-100">
+  <h1><%= @dish.name %></h1>
 
-<p>€<%= @dish.price %></p>
+  <p>Price: €<%= @dish.price %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_ingredient_path(@dish) %></li>
-  <li><%= link_to "Destroy", ingredient_path(@dish), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+  <ul>
+    <li><%= link_to "Edit", edit_dish_path(@dish) %></li>
+    <li><%= link_to "Destroy", dish_path(@dish), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %></li>
+  </ul>
 
-<h2> Ingredients </h2>
+  <h2> Ingredients </h2>
+  <br>
+  <ul>
+    <% @ingredients.each do |ingredient| %>
+      <li>
+        <%= ingredient.name %>: <%= ingredient.quantity %>kg
+      </li>
+    <% end %>
+  </ul>
 
-<ul>
-  <% @ingredients.each do |ingredient| %>
-    <li>
-      <p><%= ingredient.name %>: <%= ingredient.quantity %>kg</p>
-    </li>
-  <% end %>
-</ul>
 
+  <%= link_to "Add ingredient", new_quantity_path %>
 
-<li><%= link_to "Add ingredient", new_quantity_path %></li>
+</div>

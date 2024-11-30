@@ -1,11 +1,22 @@
-<h1>Dishes</h1>
+<div class="position-relative p-3 w-100">
+  <div class="position-absolute start-20">
+    <div>
+      <h1>Dishes</h1>
+    </div>
+    <br>
+    <div>
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          <% @dishes.each do |dish| %>
+            <li class="list-group-item"><%= link_to dish.name, dish %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <br>
+    <div class>
+      <%= link_to "New Dish", new_dish_path %>
+    </div>
+  </div>
+</div>
 
-<ul>
-  <% @dishes.each do |dish| %>
-    <li>
-      <%= link_to dish.name, dish %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to "New Dish", new_dish_path %>
